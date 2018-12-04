@@ -1,0 +1,21 @@
+<h1>Wellcome to My Portfolio</h1>
+
+<h3>Search Stocks........</h3>
+<div>
+  <%= form_tag(get_stock_path,:method => :get, :remote => true) do %>
+    <div class= "form-group row no-padding col-md-12">
+      <div class = "col-md-10">
+        <%= text_field_tag(:stock ,params[:stock],:autofocus => true,:placeholder => "Stock Ticker Symbol", :class => "form-control input-lg") %>
+      </div>
+      <div class = "col-md-2">
+        <%= button_tag(:type => :submit, :class => "btn btn-lg btn-success") do %>
+          <i class = "fa fa-search"></i> Lookup for Stock
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+  <br>
+<div id = "results">
+  
+</div>
