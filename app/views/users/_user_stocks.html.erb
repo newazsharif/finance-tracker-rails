@@ -1,0 +1,21 @@
+<% if @user_stocks.any? %>
+  <table class = "table table-responsive table-striped">
+    <thead>
+      <td><strong>Ticker</strong></td>
+      <td><strong>Name</strong></td>
+      <td><strong>Last Price</strong></td>
+      <td><strong>Delete</strong></td>
+    </thead>
+    <tbody>
+      <% @user_stocks.each do |stock| %>
+        <tr>
+          <td><%= stock.ticker %></td>
+          <td><%= stock.name %></td>
+          <td><%= stock.last_price %></td>
+          
+          <td><%= link_to "Remove" , destroy_stock_path(:id => stock.id),:method => :delete, :class => "btn btn-danger btn-xs", :data => {:confirm => "Are you sure?"} %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

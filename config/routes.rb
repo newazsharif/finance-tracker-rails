@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root(:to => 'wellcome#index')
   get('my_portfolio',:to => 'users#my_portfolio')
   get('get_stock', :to => 'stocks#get_stock')
+  
+  post('user_stock', :to => 'user_stocks#create')
+  delete('destroy_stock', :to => 'users#destroy_stock')
 end
