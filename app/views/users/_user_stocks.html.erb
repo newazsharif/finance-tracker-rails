@@ -4,7 +4,9 @@
       <td><strong>Ticker</strong></td>
       <td><strong>Name</strong></td>
       <td><strong>Last Price</strong></td>
-      <td><strong>Delete</strong></td>
+      <% if @user_stocks.first.user_id == current_user.id %>
+        <td><strong>Delete</strong></td>
+      <% end %>
     </thead>
     <tbody>
       <% @user_stocks.each do |stock| %>
@@ -12,8 +14,9 @@
           <td><%= stock.ticker %></td>
           <td><%= stock.name %></td>
           <td><%= stock.last_price %></td>
-          
-          <td><%= link_to "Remove" , destroy_stock_path(:id => stock.id),:method => :delete, :class => "btn btn-danger btn-xs", :data => {:confirm => "Are you sure?"} %></td>
+          <% if stock.user_id == current_user.id %>
+            <td><%= link_to "Remove" , destroy_stock_path(:id => stock.id),:method => :delete, :class => "btn btn-danger btn-xs", :data => {:confirm => "Are you sure?"} %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

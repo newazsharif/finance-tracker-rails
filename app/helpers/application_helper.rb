@@ -11,4 +11,9 @@ module ApplicationHelper
       return check_stock_for_user.present?
     end
   end
+  
+  def friend_Exists?(friend)
+    friend = Friendship.find_by_user_id_and_friend_id(current_user.id,friend.id)
+    return friend.present?
+  end
 end

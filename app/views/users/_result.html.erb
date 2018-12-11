@@ -9,7 +9,7 @@
     <strong>latest price: </strong><%= @stock.last_price %>
     
     <% if !tickerExists?(@stock,current_user.id) %>
-      <%= link_to("Add to article list",user_stock_path(:stock_ticker => @stock.ticker),:method => :post, :class => "btn btn-xs btn-success") %>
+      <%= link_to("Add to Tracking list",user_stock_path(:stock_ticker => @stock.ticker),:method => :post, :class => "btn btn-xs btn-success") %>
     <% else %>
       <span class = "label label-primary"> This Stock is already added </span>
     <% end %>

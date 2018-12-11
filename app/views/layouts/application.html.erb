@@ -34,9 +34,19 @@
         <a class="navbar-brand" href="#">FinanceTracker</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "My Portfolio", my_portfolio_path  %></li>
+              <li><%= link_to "Edit Information", edit_user_registration_path(current_user)  %></li>
+              <li><%= link_to "My Friends", my_friends_path  %></li>
+            <% end %>
+          </ul>
+          
+          <ul class = "nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+               <li><i class = "fa fa-user fa-sm" style = "padding-top : 18px;">  <%= current_user.first_name%> </i></li>
+              <li><%= link_to "logout",destroy_user_session_path, :method => :delete%></li>
+             
+            <% end %>
           </ul>
         </div>
       </div>

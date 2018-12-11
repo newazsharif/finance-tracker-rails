@@ -1,0 +1,27 @@
+<div class = "results-block">
+  <%= bootstrap_flash %>
+</div>
+
+
+  <table class = "table responsive ">
+    <% @users.each do |user| %>
+      <tr class = "info">
+        <td>
+          <%= user.full_name %>
+        </td>
+        <td>
+          <strong> Email : </strong><%= user.email %>
+        </td>
+        <td>
+          <%= link_to("Show Profile",user_path(user),:class => "btn btn-xs btn-info")%>
+        </td>
+        <td>
+          <% if friend_Exists?(user) %>
+            <div class = "label label-warning">This person is aleady added</div>
+          <% else %>
+            <%= link_to("Add Friend",friendships_path(:friend_id => user.id),:class => "btn btn-xs btn-success", :method => :post)%>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>

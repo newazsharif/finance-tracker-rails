@@ -1,0 +1,23 @@
+<div align = "ceneter"><h2> My Friends</h2></div>
+<hr>
+<div>
+  <%= form_tag(get_user_path,:method => :get, :remote => true) do %>
+    <div class= "form-group row no-padding col-md-12">
+      <div class = "col-md-10">
+        <%= text_field_tag(:user_str ,params[:user_str],:autofocus => true,:placeholder => "Search User....", :class => "form-control input-lg") %>
+      </div>
+      <div class = "col-md-2">
+        <%= button_tag(:type => :submit, :class => "btn btn-lg btn-success") do %>
+          <i class = "fa fa-search"></i> Search For Friends
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<div id = "friend_search" class = "row"></div>
+
+<%= render 'friends' %>
+
+  

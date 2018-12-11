@@ -1,0 +1,13 @@
+<h2>User Profile </h2>
+<hr>
+
+<div class = "well">
+  <p>
+    <strong>user name :</strong> <%= @user.full_name %>
+  </p>
+  <p>
+    <strong>email :</strong> <%= @user.email %>
+  </p>
+</div>
+
+<%= render 'user_stocks' %>
